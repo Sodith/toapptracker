@@ -1,0 +1,121 @@
+<div style="height: 89%;" class="imageheader">
+  <mat-toolbar class="toolcolor" id="toolcolor" class="imageheader">
+
+    <img src="..//../assets/logo.jpg" height="60px" style="margin-top: 1%;">
+      <span style="font-size:x-large ;margin-top: 1%;color:white;">ToDo Tracker</span>
+
+    <div class="container" style="margin-top:15px ;margin-left: -255px;">
+
+      <div class="row height d-flex justify-content-center align-items-center">
+
+        <div class="col-md-6">
+
+          <div class="form">
+            <i class="fa fa-search"><mat-icon >search</mat-icon></i>
+            <input type="text" class="form-control form-input" placeholder="Search anything..."  [(ngModel)]="searchTerm" (keyup)="search($event)">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+       
+              <mat-icon>close</mat-icon>
+              
+            </button> 
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+
+
+    <button mat-icon-button style="margin-left: 70px;margin-top:1%;"  title="Refresh" ><mat-icon style="transform: scale(1.5);color:white;" (click)="refresh()">refresh</mat-icon></button> 
+    
+    
+    <button mat-icon-button style="margin-left: 10%;margin-top:1%;color:white;" title="Apps" [matMenuTriggerFor]="apps"><mat-icon style="transform: scale(1.5);">apps</mat-icon></button>  -->
+    
+    <button mat-icon-button style="margin-left: 1.5%;margin-top:1%;color:white;" title="Account" [matMenuTriggerFor]="account"><mat-icon style="transform: scale(1.5);">account_circle</mat-icon></button>  
+
+
+
+
+    <!-- <button mat-icon-button style="margin-left: 45%;margin-top:1%;color:white;" title="Account" [matMenuTriggerFor]="account">
+      <mat-icon style="transform: scale(1.5);">account_circle</mat-icon>
+    </button> -->
+  </mat-toolbar><br>
+
+  <mat-menu #account="matMenu">
+    <button mat-menu-item>Welcome Admin</button>
+    
+    <mat-menu #apps="matMenu" xPosition="before">
+      <button mat-menu-item onclick="window.location.href='https://www.google.co.in/';"><img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" height="28px" width="28px">&nbsp;&nbsp;Google</button>
+      <button mat-menu-item onclick="window.location.href='https://www.youtube.com/';"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" height="28px" width="28px">&nbsp;&nbsp;Youtube</button>
+      <button mat-menu-item onclick="window.location.href='https://www.facebook.com/';"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" height="28px" width="28px">&nbsp;&nbsp;Facebook</button>
+      <button mat-menu-item onclick="window.location.href='https://www.instagram.com/';"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" height="28px" width="28px">&nbsp;&nbsp;Instagram</button>
+      <button mat-menu-item onclick="window.location.href='https://twitter.com/login';"><img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" height="28px" width="28px">&nbsp;&nbsp;Twitter</button>
+      <button mat-menu-item onclick="window.location.href='https://mail.google.com/mail/';"><img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" height="28px" width="28px">&nbsp;&nbsp;Gmail</button>
+    </mat-menu>
+  
+    <button mat-menu-item (click)="logoutAdmin()">
+      <mat-icon>account_box</mat-icon>
+      <span>Log Out</span>
+    </button>
+  </mat-menu>
+
+
+
+  <mat-sidenav-container class="example-container" id="example-container">
+<h1 style="font-family:cursive;margin-left:43%;margin-top: 5%;font-size: xx-large;font-weight: bolder;" >Admin Panel</h1>
+
+    
+      <div style="margin-top:15% ;">
+      <button  mat-raised-button color="accent"  (click)="openDailog()" style="transform: scale(2);margin-left:33%;margin-right: 10%;border-radius: 10px 100px/120px;" >Add Common Message</button>
+      <button mat-raised-button color="accent"  (click)="openDailog1()" style="transform: scale(2);margin-left: 1%;border-radius: 10px 100px/120px;">Delete Message</button>
+
+      <router-outlet></router-outlet>
+    </div>
+
+    
+  </mat-sidenav-container>
+
+</div>
+<!-- (click)="DisplayMessage()" -->
+
+
+<!-- <div style="height: 89%;"  class="imageheader">
+  <mat-toolbar  class="toolcolor" id="toolcolor" class="imageheader">
+    <button mat-icon-button class="example-icon" style="margin-top: 1%;" (click)="isExpanded = !isExpanded">
+        <mat-icon style="transform: scale(1.5);" style="color:white;">menu</mat-icon>
+      </button>
+      <img src="..//../assets/logo.jpg" height="60px" style="margin-top: 1%;">
+      <span style="font-size:x-large ;margin-top: 1%;color:white;">ToDo Tracker</span>
+     
+
+      <div class="container" style="margin-top:15px ;margin-left: -255px;">
+
+      <div class="row height d-flex justify-content-center align-items-center">
+
+        <div class="col-md-6">
+
+          <div class="form">
+            <i class="fa fa-search"><mat-icon >search</mat-icon></i>
+            <input type="text" class="form-control form-input" placeholder="Search anything..."  [(ngModel)]="searchTerm" (keyup)="search($event)">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+       
+              <mat-icon>close</mat-icon>
+              
+            </button> 
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+     <button mat-icon-button style="margin-left: 70px;margin-top:1%;"  title="Refresh" ><mat-icon style="transform: scale(1.5);color:white;" (click)="refresh()">refresh</mat-icon></button> 
+     <button mat-icon-button style="margin-left: 1.5%;margin-top:1%;color:white;" title="Notifications" ><mat-icon style="transform: scale(1.5);"  matBadgeColor="warn">notifications</mat-icon></button>
+     
+     <button mat-icon-button style="margin-left: 10%;margin-top:1%;color:white;" title="Apps" ><mat-icon style="transform: scale(1.5);">apps</mat-icon></button> 
+     
+     <button mat-icon-button style="margin-left: 1.5%;margin-top:1%;color:white;" title="Account" ><mat-icon style="transform: scale(1.5);">account_circle</mat-icon></button>  
+    </mat-toolbar>
+</div> -->
